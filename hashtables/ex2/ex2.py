@@ -26,13 +26,15 @@ def reconstruct_trip(tickets, length):
 
     route = []
     # The hash table item with the key of "NONE" marks the start of the trip
-    route.append(hash_table_retrieve(hashtable, "NONE"))
+    route.append(hash_table_retrieve(hashtable, 'NONE'))
 
     # Once the length of our route list meets the total length oif the trip then we have completed the trip.
     # We grab the last value added to route list and use that value to grab the key of the next ticket.
     while len(route) < length:
         route.append(hash_table_retrieve(hashtable, route[len(route)-1]))
 
-    return route
+    # removing last element from the array
+    route = route[:-1]
+    return route 
 
 
